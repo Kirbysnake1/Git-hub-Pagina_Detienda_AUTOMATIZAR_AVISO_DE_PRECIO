@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <!-- Enlace a Bootstrap CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            background-color: #ECCC84; /* Color de fondo de la barra de navegación */
+        }
+        .card {
+            background-color: #F5DFDC; /* Color de fondo de las tarjetas */
+            border-color: #F5DFDC; /* Color del borde de las tarjetas */
+        }
+        .card-title {
+            color: #E63946; /* Color del título de las tarjetas */
+        }
+        .card-text {
+            color: #457B9D; /* Color del texto de las tarjetas */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">TiendaAxM</a>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h1 class="mb-4">Lista de Productos</h1>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for producto in productos %}
+    <div class="col">
+      <div class="card h-100">
+        <img src="{{ producto[4] }}" class="card-img-top" alt="Imagen del producto">
+        <div class="card-body">
+          <h5 class="card-title">{{ producto[1] }}</h5>
+          <p class="card-text">Precio: ${{ producto[2] }}</p>
+          <p class="card-text">{{ producto[3] }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Scripts de Bootstrap (opcional) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
